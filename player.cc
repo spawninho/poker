@@ -3,18 +3,39 @@
 
 
 Hand hand_;
+Card card_1_;
+Card card_2_;
 
-
-Player::Player(std::string name) :
-	player_name_(name)
+Player::Player(std::string name,Card card_1_,Card card_2_) :
+	player_name_(name), card_1_(card_1_), card_2_(card_2_)
 {
 	
+}
+
+Card Player::getCard1()
+{
+	return card_1_;
+}
+Card Player::getCard2()
+{
+	return card_2_;
+}
+std::string Player::getName()
+{
+	return player_name_;
+}
+std::string Player::getPlayerDisplay()
+{
+	return player_display_;
 }
 
 std::string Player::display()
 {
 	std::cout << player_name_ << "\n";
-	return player_name_;
+	std::cout << card_1_.ToString() << ", ";
+	std::cout << card_2_.ToString() << '\n';
+
+	return player_display_;
 }
 
 int Player::getScore()
@@ -42,9 +63,4 @@ int Player::getScore()
 		break;
 	}
 	return score;
-}
-
-std::string Player::getName()
-{
-	return player_name_;
 }

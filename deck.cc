@@ -10,7 +10,7 @@ Deck::Deck()
 	{
 		for (Suit s = Suit::kHeart; s <= Suit::kSquare; s = static_cast<Suit>(static_cast<int>(s) + 1))
 		{
-			deck_.emplace_back( (v),(s) );
+			deck_.emplace_back((v), (s));
 		}
 	}
 }
