@@ -4,18 +4,23 @@
 #include <vector>
 #include "card.h"
 
+
 class Deck
 {
 public:
 
-	std::vector<Card> deck_;
-
 	Deck();
 
-	void shuffle();
+	void Shuffle();
 
 	Card draw_a_card();
-
+	void GiveCardToRiver();
+	void DisplayRiver();
 	void DisplayAllDeck();
+
+private:
+
+	std::vector<Card> deck_;
+	std::vector<Card> river_;
 };
 #endif // DECK_H

@@ -3,13 +3,13 @@
 
 #include <iostream>
 
+
 enum class Suit
 {
 	kHeart,
 	kClub,
 	kSpade,
 	kSquare,
-
 };
 std::string SuitToString(Suit suit);
 
@@ -31,6 +31,7 @@ enum class Value
 	kAce,
 };
 std::string ValueToString(Value value);
+
 
 enum class Hand
 {

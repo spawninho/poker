@@ -1,8 +1,8 @@
 #include "card.h"
 
 
-Value value_;
-Suit suit_;
+Value value;
+Suit suit;
 
 Value Card::GetValue()
 {

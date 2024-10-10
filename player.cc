@@ -2,34 +2,37 @@
 #include "player.h"
 
 
-Hand hand_;
-Card card_1_;
-Card card_2_;
+Hand hand;
+Card card_1;
+Card card_2;
 
-Player::Player(std::string name,Card card_1_,Card card_2_) :
-	player_name_(name), card_1_(card_1_), card_2_(card_2_)
+Player::Player(std::string name,Card card_1,Card card_2) :
+	player_name_(name), card_1_(card_1), card_2_(card_2)
 {
 	
 }
 
-Card Player::getCard1()
+Card Player::GetCard1()
 {
 	return card_1_;
 }
-Card Player::getCard2()
+
+Card Player::GetCard2()
 {
 	return card_2_;
 }
-std::string Player::getName()
+
+std::string Player::GetName()
 {
 	return player_name_;
 }
-std::string Player::getPlayerDisplay()
+
+std::string Player::GetPlayerDisplay()
 {
 	return player_display_;
 }
 
-std::string Player::display()
+std::string Player::Display()
 {
 	std::cout << player_name_ << "\n";
 	std::cout << card_1_.ToString() << ", ";
@@ -38,7 +41,7 @@ std::string Player::display()
 	return player_display_;
 }
 
-int Player::getScore()
+int Player::GetScore()
 {
 	int score = 0;
 	switch (Hand(hand_))

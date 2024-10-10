@@ -4,6 +4,8 @@
 #include <random>
 
 
+Deck deck;
+
 Deck::Deck()
 {
 	for (Value v = Value::kTwo; v <= Value::kAce; v = static_cast<Value>(static_cast<int>(v) + 1))
@@ -15,7 +17,7 @@ Deck::Deck()
 	}
 }
 
-void Deck::shuffle()
+void Deck::Shuffle()
 {
 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	std::shuffle(deck_.begin(), deck_.end(), std::default_random_engine(seed));
@@ -29,10 +31,23 @@ Card Deck::draw_a_card()
 	return return_card;
 }
 
+void Deck::GiveCardToRiver()
+{
+	river_.push_back(draw_a_card());
+}
+
+void Deck::DisplayRiver()
+{
+	for (Card& card: river_)
+	{
+		std::cout << card.ToString() << '\n';
+	}
+}
+
 void Deck::DisplayAllDeck()
 {
 	for (const Card& card : deck_)
 	{
-		std::cout << card.ToString() << std::endl;
+		std::cout << card.ToString() << '\n';
 	}
 }
