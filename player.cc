@@ -1,32 +1,20 @@
 #include <iostream>
 #include "player.h"
 
-Hand hand_;
-Card card1_;
-Card card2_;
 
-Player::Player(std::string name,Card card1,Card card2) :
+Hand hand_;
+
+
+Player::Player(std::string name) :
 	player_name_(name)
 {
 	
 }
 
-Card Player::getCard1()
-{
-	return card1_;
-}
-
-Card Player::getCard2()
-{
-	return card2_;
-}
-
 std::string Player::display()
 {
 	std::cout << player_name_ << "\n";
-	std::cout << " " << card1_.ToString();
-	std::cout << " " << card2_.ToString();
-	return display();
+	return player_name_;
 }
 
 int Player::getScore()

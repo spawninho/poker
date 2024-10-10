@@ -6,8 +6,8 @@
 int main()
 {
 	Deck deck;
-	Player player1("Karl\n",deck.draw_a_card(), deck.draw_a_card());
-	Player player2("Jean\n",deck.draw_a_card(),deck.draw_a_card());
+	Player player1("Karl\n");
+	Player player2("Jean\n");
 
 	player1.display();
 	player2.display();
