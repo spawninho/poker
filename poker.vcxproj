@@ -131,15 +131,13 @@
     <ClCompile Include="deck.cc" />
     <ClCompile Include="player.cc" />
     <ClCompile Include="poker.cpp" />
-    <ClCompile Include="score.cc" />
-    <ClCompile Include="suit.cc" />
+    <ClCompile Include="enum.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="card.h" />
     <ClInclude Include="deck.h" />
     <ClInclude Include="player.h" />
-    <ClInclude Include="score.h" />
-    <ClInclude Include="suit.h" />
+    <ClInclude Include="enum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

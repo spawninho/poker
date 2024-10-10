@@ -1,19 +1,31 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include<iostream>
 #include "card.h"
+#include<iostream>
+
 
 class Player
 {
 public:
-	Player(Card card_a, Card card_b, std::string name);
-	void display();
+
+	Player() = default;
+	Player(std::string name, Card card1, Card card2);
+
+	Card getCard1();
+
+	Card getCard2();
+
+	std::string display();
+
 	int getScore();
+	
+	std::string getName();
 
 private:
-	Card card_a_;
-	Card card_b_;
 	std::string player_name_;
+	Hand hand_;
+	Card card1_;
+	Card card2_;
 };
 #endif

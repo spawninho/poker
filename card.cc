@@ -1,22 +1,22 @@
 #include "card.h"
 
 
-Suit suit_;
 Value value_;
+Suit suit_;
 
-Value Card::getValue()
+Value Card::GetValue()
 {
 	return value_;
 }
 
-Suit Card::getSuit()
+Suit Card::GetSuit()
 {
 	return suit_;
 }
 
 bool Card::operator == (Card& other)
 {
-	return (this->suit_ == other.suit_ && this -> value_ == other.value_);
+	return (this->value_ == other.value_ && this ->suit_ == other.suit_);
 }
 
 bool Card::operator < (Card& other)
@@ -29,7 +29,7 @@ bool Card::operator > (Card& other)
 	return (this->value_ > other.value_);
 }
 
-std::string Card::ToString()
+std::string Card::ToString() const
 {
 	return ValueToString(value_) + " of " + SuitToString(suit_);
 }

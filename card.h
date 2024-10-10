@@ -1,25 +1,21 @@
 #ifndef CARD_H
 #define CARD_H
-
-#include "Suit.h"
+#include "enum.h"
 
 class Card
 {
 public:
-	Card(Value v, Suit s) : value_(v), suit_(s)
-	{
-		
-	}
-	Value getValue();
-	Suit getSuit();
-	Card operator + (Card& card);
+	Card() = default;
+	Card(Value v, Suit s) : value_(v), suit_(s) {}
+	Value GetValue();
+	Suit GetSuit();
 	bool operator == (Card & other);
 	bool operator < (Card & other);
 	bool operator > (Card & other);
-	std::string ToString();
-
+	std::string ToString() const;
+	
 private:
-	Suit suit_;
 	Value value_;
+	Suit suit_;
 };
 #endif

@@ -1,77 +1,62 @@
 #include <iostream>
 #include "player.h"
 
-Player::Player(Card card_a, Card card_b, std::string name) :
-	card_a_(card_a), card_b_(card_b), player_name_(name) {}
+Hand hand_;
+Card card1_;
+Card card2_;
 
-void Player::display()
+Player::Player(std::string name,Card card1,Card card2) :
+	player_name_(name)
 {
-	std::cout << player_name_ << " has cards: \n";
-	std::cout << card_a_.ToString() << '\n';
-	std::cout << "and" << '\n';
-	std::cout << card_b_.ToString() << '\n';
-	std::cout << "with a score of " << getScore() << '\n';
+	
 }
+
+Card Player::getCard1()
+{
+	return card1_;
+}
+
+Card Player::getCard2()
+{
+	return card2_;
+}
+
+std::string Player::display()
+{
+	std::cout << player_name_ << "\n";
+	std::cout << " " << card1_.ToString();
+	std::cout << " " << card2_.ToString();
+	return display();
+}
+
 int Player::getScore()
 {
 	int score = 0;
-	switch (card_a_.getValue())
+	switch (Hand(hand_))
 	{
-	case Value::kTwo: score += 2;
+	case Hand::kHighCard: score += 1;
 		break;
-	case Value::kThree: score += 3;
+	case Hand::kPair: score += 2;
 		break;
-	case Value::kFour: score += 4;
+	case Hand::kTwoPair: score += 3;
 		break;
-	case Value::kFive: score += 5;
+	case Hand::kThreeOfAKind: score += 4;
 		break;
-	case Value::kSix: score += 6;
+	case Hand::kStraight: score += 5;
 		break;
-	case Value::kSeven: score += 7;
+	case Hand::kFlush: score += 6;
 		break;
-	case Value::kEight: score += 8;
+	case Hand::kFullHouse: score += 6;
 		break;
-	case Value::kNine: score += 9;
+	case Hand::kFourOfAKind: score += 7;
 		break;
-	case Value::kTen: score += 10;
-		break;
-	case Value::kJack: score += 11;
-		break;
-	case Value::kQueen: score += 12;
-		break;
-	case Value::kKing: score += 13;
-		break;
-	case Value::kAce: score += 14;
-		break;
-	}
-	switch (card_b_.getValue())
-	{
-	case Value::kTwo: score += 2;
-		break;
-	case Value::kThree: score += 3;
-		break;
-	case Value::kFour: score += 4;
-		break;
-	case Value::kFive: score += 5;
-		break;
-	case Value::kSix: score += 6;
-		break;
-	case Value::kSeven: score += 7;
-		break;
-	case Value::kEight: score += 8;
-		break;
-	case Value::kNine: score += 9;
-		break;
-	case Value::kTen: score += 10;
-		break;
-	case Value::kJack: score += 11;
-		break;
-	case Value::kQueen: score += 12;
-		break;
-	case Value::kKing: score += 13;
-		break;
-	case Value::kAce: score += 14;
+	case Hand::kStraightFlush: score += 8;
 		break;
 	}
 	return score;
+}
+
+std::string Player::getName()
+{
+	return player_name_;
 }
